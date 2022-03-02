@@ -1,5 +1,7 @@
 package com.mongo.practice.mongo;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +31,11 @@ public class MongoApplication {
 			.password("1234")
 			.build();
 
-		memberRepository.insert(member);
+//		memberRepository.save(member);
+//		memberRepository.deleteByUsernameAndPassword(member.getUsername(), member.getPassword());
+//		memberRepository.insert(member);
+		List<Member> findMembers = memberRepository.findByUsernameAndPassword(member.getUsername(), member.getPassword());
 
-		log.info("[테스트 insert] " + member);
+		System.out.println(findMembers);
 	}
 }

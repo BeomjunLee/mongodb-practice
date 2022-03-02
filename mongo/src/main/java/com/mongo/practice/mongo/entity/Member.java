@@ -1,5 +1,6 @@
 package com.mongo.practice.mongo.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,8 +14,9 @@ import lombok.ToString;
 @ToString
 public class Member {
 
+	//	private ObjectId memberId;
 	@Id
-	private long memberId;
+	private Long memberId;
 	private String username;
 	private String password;
 }
